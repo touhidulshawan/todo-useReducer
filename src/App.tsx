@@ -3,6 +3,7 @@ import { useReducer } from "react";
 import { v4 as uuid } from "uuid";
 import Todo from "./components/Todo";
 import TodoForm from "./components/TodoForm";
+
 export interface Todos {
   id: string;
   todoName: string;
@@ -19,7 +20,7 @@ interface ModifyTodoAction {
   payload: { id: string };
 }
 
-type TodoAction = AddTodoAction | ModifyTodoAction;
+export type TodoAction = AddTodoAction | ModifyTodoAction;
 
 const reducer = (todos: Array<Todos>, action: TodoAction) => {
   switch (action.type) {
@@ -55,7 +56,7 @@ const App: React.FC = () => {
         key={todo.id}
         id={todo.id}
         todoName={todo.todoName}
-        isComplete={todo.isCompleted}
+        isCompleted={todo.isCompleted}
         dispatch={dispatch}
       />
     );

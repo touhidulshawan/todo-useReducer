@@ -1,8 +1,9 @@
 import * as React from "react";
 import { useState } from "react";
+import { TodoAction } from "../App";
 
 interface Props {
-  dispatch: Function;
+  dispatch: React.Dispatch<TodoAction>;
 }
 
 const TodoForm: React.FC<Props> = ({ dispatch }) => {

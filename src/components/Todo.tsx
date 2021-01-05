@@ -1,18 +1,16 @@
 import * as React from "react";
+import { Todos, TodoAction } from "../App";
 
-interface Props {
-  id: string;
-  todoName: string;
-  isComplete: boolean;
-  dispatch: Function;
+interface Props extends Todos {
+  dispatch: React.Dispatch<TodoAction>;
 }
 
 const Todo: React.FC<Props> = (props) => {
-  const { id, todoName, isComplete, dispatch } = props;
+  const { id, todoName, isCompleted, dispatch } = props;
 
   const completedStyle: React.CSSProperties = {
-    color: isComplete ? "#aaa" : "#000",
-    textDecoration: isComplete ? "line-through" : "",
+    color: isCompleted ? "#aaa" : "#000",
+    textDecoration: isCompleted ? "line-through" : "",
     cursor: "pointer",
   };
 
